@@ -40,6 +40,8 @@ app.listen(port, () => {
   console.log(`Started on port ${port}`);
 });
 
+module.exports = {app};
+
 //
 // firstUser.save().then((doc) => {
 //   console.log('Saved firstUser', JSON.stringify(doc, undefined, 2));
