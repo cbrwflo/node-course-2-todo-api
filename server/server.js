@@ -6,7 +6,7 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
-const port = (process.env.PORT === undefined) ? 3000 : process.env.PORT;
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -54,10 +54,3 @@ app.listen(port, () => {
 });
 
 module.exports = {app};
-
-//
-// firstUser.save().then((doc) => {
-//   console.log('Saved firstUser', JSON.stringify(doc, undefined, 2));
-// }, (e) => {
-//   console.log('Unable to save', e);
-// });
