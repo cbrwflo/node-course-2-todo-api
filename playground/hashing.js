@@ -1,13 +1,32 @@
-const jwt = require('jsonwebtoken');
+//const SHA256 = require('SHA256'); //hard way to sign and verify tokens
+const jwt = require('jsonwebtoken'); //easy way
+const bcrypt = require('bcryptjs');
 
-var data = {
-  id: 4
-};
+var password = '123abc!';
 
-var token = jwt.sign(data, 'somesecretsalt');
-console.log(`Token: ${token}`);
+bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.hash(password, salt, (err, hash) => {
+    console.log(hash);
+  });
+});
 
-var decoded = jwt.verify(token, 'somesecretsalt');
+var hashedPassword = '$2a$10$KuKEasv2CnpOyaQmxO/zWuZYF5tNEQeFNMrPyYZbuilqWh5rCfNM6';
+
+bcrypt.compare(password, hashedPassword, (err, res) => {
+  //true if passwords match
+  console.log(res);
+  //false if they don't
+
+});
+// Easy way: JWT
+// var data = {
+//   id: 4
+// };
+//
+// var token = jwt.sign(data, 'somesecretsalt');
+// console.log(`Token: ${token}`);
+//
+// var decoded = jwt.verify(token, 'somesecretsalt');
 
 //
 // The hard way:
