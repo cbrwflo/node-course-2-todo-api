@@ -11,6 +11,7 @@ var {User} = require('./models/user');
 var {authenticate} = require('./middleware/authenticate');
 
 var app = express();
+app.disable('x-powered-by');
 const port = process.env.PORT;
 
 app.use(bodyParser.json());
@@ -52,7 +53,7 @@ app.get('/todos/:id', authenticate, (req, res) => {
     if (!todo) {
       return res.status(404).send();
     }
-
+    
     res.send({todo});
   }).catch((e) => {
     res.status(400).send();
