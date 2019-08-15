@@ -66,7 +66,7 @@ app.delete('/todos/:id', authenticate, async (req, res) => {
     }
 
   try {
-    const todo = await Todo.findOneAndRemove({
+    const todo = await Todo.findOneAndDelete({
       _id: req.params.id,
       _creator: req.user._id
     });
