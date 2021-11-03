@@ -24,7 +24,7 @@
     "mongodb": "^2.2.36",
     "mongoose": "^5.6.9",
     "ratelimiter": "^3.3.0",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
